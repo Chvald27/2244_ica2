@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                //echo "This is Build Docker image stage 2"
+                //echo "This is Build Docker image stage 3"
                 sh 'docker build -t 2244_ica2:latest .'
                 sh "docker tag 2244_ica2:latest 2244_ica2:develop-${env.BUILD_ID}"
                 sh 'docker images'
@@ -35,7 +35,7 @@ pipeline {
                             docker login -u ${USERNAME} -p ${PASSWORD}
                             docker push secarl/2244_ica2:latest
                         '''
-                        //sh "sudo docker push sanjeebnepal/devops_exam2:develop-${env.BUILD_ID}"
+                        //sh "sudo docker push sanjeebnepal/devops_exam2:develop-${env.BUILD_ID}" Test
                     }
 
             }
