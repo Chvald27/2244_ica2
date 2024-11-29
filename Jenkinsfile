@@ -29,14 +29,13 @@ pipeline {
         }
         stage('Tagging and Push'){
             steps {
-                sh 'docker tag 2244_ica2:latest secarl/2244_ica2:latest'
+                sh 'docker tag 2244_ica2:latest chvald27/2244_ica2:latest'
                 echo 'Building..'
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
                             docker login -u ${USERNAME} -p ${PASSWORD}
-                            docker push secarl/2244_ica2:latest
+                            docker push chvald27/2244_ica2:latest
                         '''
-                        //sh "sudo docker push sanjeebnepal/devops_exam2:develop-${env.BUILD_ID}" Test
                     }
 
             }
